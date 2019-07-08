@@ -10,14 +10,14 @@ app.prepare()
    .then(()=> {
        const server = express()
 
-      //  server.get("*", (req, res) => {
-		// 	return handle(req, res)
-      //  })
-
+       
        server.get('/api/show', (req, res)=> {
           return res.send('yay we made it')
-       })
-	   
+         })
+         
+      server.get("*", (req, res) => {
+      return handle(req, res)
+      })
 	   server.listen(port, err => {
 			if(err) throw err;
 			console.log(`Ready on ${port}`)
